@@ -246,7 +246,7 @@
       D3                    T_CS
       D5                    T_CLK
       D6                    SDO
-      D0                    LED       //since LED doesnt nee interrupt, default was D8
+      D0                    LED       //since LED doesnt need interrupt, default was D8
       D5                    SCK
       D7                    SDI
       D2                    D/C
@@ -1188,20 +1188,21 @@ void updateDHT() {
   //  Commented out reading of temp/humidity as it is current not used in this sketch
  // humidity = dht.readHumidity();
  // temperature = dht.readTemperature(!isMetric);
-  humidity = dht.getHumidity();
-  temperature = dht.getTemperature();
+  float humidity_tmp = dht.getHumidity();
+  float temperature_tmp = dht.getTemperature();
   Serial.println("DHT updated...");
-  if (isnan(temperature)) {
+  if (isnan(temperature_tmp)) {
     Serial.println("Error reading temperature!");
   }
   else {
+    temperature = temperature_tmp;
     Serial.println("Temperature: " + String(temperature) + "C");
   }
-  if (isnan(humidity)) {
+  if (isnan(humidity_tmp)) {
     Serial.println("Error reading humidity!");
   }
   else {
-    humidity = round(humidity);
+    humidity = round(humidity_tmp);
     Serial.println("Humidity: " + String(humidity) + "%");
   }
   readyForDHTUpdate = false;
