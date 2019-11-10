@@ -56,6 +56,6 @@ Library / Core Referenced | Version | Description | Link
 **<WundergroundClient.h>** | | (*** No longer used ***) | <https://github.com/squix78/esp8266-weather-station>
 **<simpleDSTadjust.h>**	| 1.2.0 | Simple daylight-savings time adjustment by Neptune | <https://github.com/neptune2/simpleDSTadjust>
 **"TimeZone.h"** | 1.2.2 | Time zone conversion library by JChristensen | <https://github.com/JChristensen/Timezone>
-**"DHTesp.h"** | 1.17.0 | Bernd Giesecke's DHT sensor library for ESP | <https://github.com/adafruit/DHT-sensor-library>
+**"DHTesp.h"** | 1.17.0 | Bernd Giesecke's DHT sensor library for ESP | <https://github.com/beegee-tokyo/DHTesp>
 **<Adafruit_Sensor.h>** | 1.0.2 | Adafruit's Unified Sensor library | <https://github.com/adafruit/Adafruit_Sensor>
 
