@@ -11,25 +11,25 @@ Changes:
 ## Wiring
 
 
-| ILI9341   | NodeMCU | WeMos D1 Mini | 
-| --------- |:---------:|:---------------:|
-| T_IRQ     | D4    | D4  | 
-| T_DO      | D6    | D6  | 
-| T_DIN     | D7    | D7  | 
-| T_CS      | D3    | D3  | 
-| T_CLK     | D5    | D5  | 
-| SDO/MISO  | D6    | D6  | 
-| LED       | D0    | D0  | since LED doesnt need interrupt, default was D8
-| SCK       | D5    | D5  | 
-| SDI/MOSI  | D7    | D7  |
-| DC/RS     | D2    | D2  |
-| RESET     | RST   | RST | 
-| CS        | D8    | D8  | needed D1 for DHT, since DHT and D8 crashed ESP, default was D1
-| GND       | GND   | GND | 
-| VCC       | 3V3   | 3V3 | 
-| DHTdata   | D1    | D1  |
-| DHTV+     | 3V3   | 3V3 | 
-| DHTGND    | GND   | GND | 
+| ILI9341   | NodeMCU | WeMos D1 Mini |  Comments | 
+| --------- |:---------:|:---------------:|:---------------:|
+| T_IRQ     | D4    | D4  |  |
+| T_DO      | D6    | D6  |  |
+| T_DIN     | D7    | D7  |  |
+| T_CS      | D3    | D3  |  |
+| T_CLK     | D5    | D5  |  |
+| SDO/MISO  | D6    | D6  |  |
+| LED       | D0    | D0  | since LED doesnt need interrupt, default was D8 |
+| SCK       | D5    | D5  |  |
+| SDI/MOSI  | D7    | D7  |  |
+| DC/RS     | D2    | D2  |  |
+| RESET     | RST   | RST |  |
+| CS        | D8    | D8  | needed D1 for DHT, since DHT and D8 crashed ESP, default was D1 |
+| GND       | GND   | GND |  |
+| VCC       | 3V3   | 3V3 |  |
+| DHTdata   | D1    | D1  |  |
+| DHTV+     | 3V3   | 3V3 |  |
+| DHTGND    | GND   | GND |  |
 
 **Note that I have not tested the NodeMCU 
 
