@@ -1682,28 +1682,29 @@ void drawCurrentObservations () {
 
   columnNumber++;
   lineNumber = 2.5;     // reset for second column
-
+  int shift = 5; //x-shift
+  int shift2 = 10; //x shift 2
   temp = "Press: ";
-  ui.drawString(x + ((columnNumber - 1)*columnWidth), y + (fontHeight * (lineNumber - 1)), temp);
+  ui.drawString(x + ((columnNumber - 1)*columnWidth) + shift, y + (fontHeight * (lineNumber - 1)), temp);
   //temp = wunderground.getPressure();
   if (isMetric) {
     temp = String(currentWeather.pressure) + "hPa";     //** Need to convert to in Hg
   } else {
     temp = String(hPaToInHg(currentWeather.pressure)) + "in";
   }
-  ui.drawString(x + ((columnNumber - 1)*columnWidth) + (maxLabelWidth * fontWidth), y + (fontHeight * (lineNumber - 1)), temp);
+  ui.drawString(x + ((columnNumber - 1)*columnWidth) + (maxLabelWidth * fontWidth) + shift2, y + (fontHeight * (lineNumber - 1)), temp);
   lineNumber++;
 
   temp = "RoomT: ";       
-  ui.drawString(x+((columnNumber-1)*columnWidth), y+(fontHeight*(lineNumber-1)), temp);
+  ui.drawString(x+((columnNumber-1)*columnWidth) + shift, y+(fontHeight*(lineNumber-1)), temp);
   temp = String(temperature, 1) + "C";
-  ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth), y+(fontHeight*(lineNumber-1)), temp);
+  ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth) + shift2, y+(fontHeight*(lineNumber-1)), temp);
   lineNumber++;
 
   temp = "RoomH: ";       
-  ui.drawString(x+((columnNumber-1)*columnWidth), y+(fontHeight*(lineNumber-1)), temp);
+  ui.drawString(x+((columnNumber-1)*columnWidth) + shift, y+(fontHeight*(lineNumber-1)), temp);
   temp = String(humidity, 0) + "%";
-  ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth), y+(fontHeight*(lineNumber-1)), temp);
+  ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth) + shift2, y+(fontHeight*(lineNumber-1)), temp);
   lineNumber++;
 
   //temp = wunderground.getObservationTime();
