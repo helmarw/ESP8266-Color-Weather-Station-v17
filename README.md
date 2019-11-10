@@ -2,7 +2,11 @@
 
 Original desctiption and instrukciton see here: https://github.com/fowlerk/ESP8266-Color-Weather-Station-v17
 
-Changes
+Changes:
+ mod for DHTesp.h and DHT22, if you want to use DHT11 you have to change the line 
+ dht.setup(DHTPIN, DHTesp::DHT22); and replace DHT22 by DHT11
+ had to change some wiring, LED=D0, CS=D8 and DHT=D1, details see below
+ added WiFiManager.h v01.14 zu src, since its the last one which is working with this code
 
 ## Wiring
 
@@ -15,12 +19,12 @@ Changes
 | T_CS      | D3    | D3  | 
 | T_CLK     | D5    | D5  | 
 | SDO/MISO  | D6    | D6  | 
-| LED       | D0    | D0  | 
+| LED       | D0    | D0  | since LED doesnt need interrupt, default was D8
 | SCK       | D5    | D5  | 
 | SDI/MOSI  | D7    | D7  |
 | DC/RS     | D2    | D2  |
 | RESET     | RST   | RST | 
-| CS        | D8    | D8  | 
+| CS        | D8    | D8  | needed D1 for DHT, since DHT and D8 crashed ESP, default was D1
 | GND       | GND   | GND | 
 | VCC       | 3V3   | 3V3 | 
 | DHTdata   | D1    | D1  |
