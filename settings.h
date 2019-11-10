@@ -20,37 +20,38 @@ See more at http://blog.squix.ch
 
 // Tft library connectors for ILI9341 display, XPT2046 touch-screen
 #define TFT_DC D2
-#define TFT_CS D1
+#define TFT_CS D8 //was D1, changed to D8 so DHT22 can be used on D1
 #define TOUCH_CS D3
 #define TOUCH_IRQ  D4
-#define LED_PIN D8
+#define LED_PIN D0 //was D8, changed to D0 since iLED doesnt need interrupt
 
-#include "DHT.h"
+//#include "DHT.h"
+#include <DHTesp.h>
 #include <simpleDSTadjust.h>
 
 // DHT Settings
 // Uncomment whatever type you're using!
 
 // #define DHTPIN D2 // NodeMCU
-//#define DHTPIN D8 // Wemos D1R2 Mini (DHT not currently implemented here)
+#define DHTPIN D1 // Wemos D1R2 Mini (for DHT22 hardcoded, dont use D8 or D0 neither works)
 
 //#define DHTTYPE DHT11   // DHT 11
-#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321 (DHT not currently implemented here)
+//#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321 (DHT not currently implemented here)
 //#define DHTTYPE DHT21   // DHT 21 (AM2301)
 
-#if DHTTYPE == DHT22
-#define DHTTEXT "DHT22"
-#elif DHTTYPE == DHT21
-#define DHTTEXT "DHT21"
-#elif DHTTYPE == DHT11
-#define DHTTEXT "DHT11"
-#endif
+//#if DHTTYPE == DHT22
+//#define DHTTEXT "DHT22"
+//#elif DHTTYPE == DHT21
+//#define DHTTEXT "DHT21"
+//#elif DHTTYPE == DHT11
+//#define DHTTEXT "DHT11"
+//#endif
 char FormattedTemperature[10];
 char FormattedHumidity[10];
 
 // Double-reset detector settings (for on-demand configuration portal)...
 
-// Number of seconds after reset during which a 
+// Number of seconds after reset during which a
 // subseqent reset will be considered a double reset.
 #define DRD_TIMEOUT 10
 
@@ -73,7 +74,7 @@ bool timeIsSet = false;             // flag to indicate if time has been set
 uint8_t midPanelIndex = 0;          // index used to indicate which forecast panel is currently active; used for touch-enhancements, added 22-Jan-18, DKF
 
 // Uncomment for 24 Hour style clock
-//#define STYLE_24HR
+#define STYLE_24HR
 
 // *** The following are default values for the configuration...
 //      DST rules for US Eastern Time Zone (New York, Boston, Louisville)
@@ -99,7 +100,7 @@ const uint8_t MAX_FORECASTS = 15;
 
 //const boolean IS_METRIC = false;
 
-char OPEN_WEATHER_MAP_APP_ID[33] = "OWM App ID";
+char OPEN_WEATHER_MAP_APP_ID[33] = "OWN_API_KEY";
 //char WUNDERGROUND_LANGUAGE[4] = "EN";
 /*
 Arabic -> ar, Bulgarian -> bg, Catalan -> ca, Czech -> cz, German -> de, Greek -> el,
@@ -116,15 +117,15 @@ char OPEN_WEATHER_MAP_LANGUAGE[4] = "en";
 //char WUNDERGROUND_CITY[20] = "KY/40223";
 /*
 Go to https://openweathermap.org/find?q= and search for a location. Go through the
-result set and select the entry closest to the actual location you want to display 
+result set and select the entry closest to the actual location you want to display
 data for. It'll be a URL like https://openweathermap.org/city/2657896. The number
 at the end is what you assign to the constant below.
  */
 //String OPEN_WEATHER_MAP_LOCATION_ID = "4299276";
-char OPEN_WEATHER_MAP_LOCATION_ID[10] = "4299276";          // Louisville, KY, US
+char OPEN_WEATHER_MAP_LOCATION_ID[10] = "2950159";          // Louisville, KY, US
 //String DISPLAYED_CITY_NAME = "Louisville";
-char DISPLAYED_CITY_NAME[30] = "Louisville";
-char TZ_CITY[30] = "Louisville";
+char DISPLAYED_CITY_NAME[30] = "Berlin";
+char TZ_CITY[30] = "Zurich";
 char MID_PANEL_DELAY[3] = "6";                          // Added 26-Jan-2018, DKF
 char BOT_PANEL_DELAY[3] = "10";
 char RESTART_TIME[6] = "02:00";                         // Default auto-restart time; 01-Mar-2018, DKF
