@@ -1202,7 +1202,7 @@ void updateDHT() {
     Serial.println("Error reading humidity!");
   }
   else {
-    humidity = round(humidity_tmp);
+    humidity = humidity_tmp;
     Serial.println("Humidity: " + String(humidity) + "%");
   }
   readyForDHTUpdate = false;
@@ -1696,13 +1696,13 @@ void drawCurrentObservations () {
 
   temp = "RoomT: ";       
   ui.drawString(x+((columnNumber-1)*columnWidth), y+(fontHeight*(lineNumber-1)), temp);
-  temp = String(temperature) + "C";
+  temp = String(temperature, 1) + "C";
   ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth), y+(fontHeight*(lineNumber-1)), temp);
   lineNumber++;
 
   temp = "RoomH: ";       
   ui.drawString(x+((columnNumber-1)*columnWidth), y+(fontHeight*(lineNumber-1)), temp);
-  temp = String(humidity) + "%";
+  temp = String(humidity, 0) + "%";
   ui.drawString(x+((columnNumber-1)*columnWidth)+(maxLabelWidth*fontWidth), y+(fontHeight*(lineNumber-1)), temp);
   lineNumber++;
 
