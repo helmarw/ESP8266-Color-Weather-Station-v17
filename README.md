@@ -1,6 +1,6 @@
 #  Enhanced ESP8266 Color Weather Station w/ Touchscreen -- (Version v17, Open Weather Map) (based on original by Daniel Eichorn (squix78) modified for DHT22)
 
-Original desctiption and instrukciton see here: https://github.com/fowlerk/ESP8266-Color-Weather-Station-v17
+Original desctiption and instructions see here: https://github.com/fowlerk/ESP8266-Color-Weather-Station-v17
 
 Changes:
  mod for DHTesp.h and DHT22, if you want to use DHT11 you have to change the line 
